@@ -25,4 +25,9 @@ $SEND_CHANGE = 0x02
 Write-Host "Restarting Explorer..."
 Stop-Process -Name explorer -Force
 Start-Process explorer
+# Open an explorer window to the host-shared folder on first launch
+Start-Sleep -Seconds 2
+if ($launchingSandbox) { 
+    Start-Process explorer.exe -ArgumentList 'C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared' 
+}
 Write-Host "Light mode enabled! Explorer has been restarted."

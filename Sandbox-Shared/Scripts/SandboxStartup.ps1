@@ -16,8 +16,15 @@ if ($env:USERNAME -ne "WDAGUtilityAccount") {
     exit
 }
 
+# Show "This PC" on Desktop
+$ThisPCGuid = "{20D04FE0-3AEA-1069-A2D8-08002B30309D}"
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel" /v $ThisPCGuid /t REG_DWORD /d 0 /f
+
+# Set File Explorer to open "This PC" by default
+reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "LaunchTo" /t REG_DWORD /d 1 /f
+
 # Change context menu to old style
-reg.exe add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
+reg add "HKCU\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" /f /ve
 
 # Show file extensions
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" /v "HideFileExt" /t REG_DWORD /d 0 /f
@@ -75,7 +82,10 @@ reg add "HKEY_CLASSES_ROOT\.ps1\ShellNew" /v "ItemName" /t REG_SZ /d "script" /f
 Stop-Process -Name explorer -Force
 
 # Open an explorer window to the host-shared folder on first launch
-if ($launchingSandbox) { Start-Process explorer.exe C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared }
+Start-Sleep -Seconds 2
+if ($launchingSandbox) { 
+    Start-Process explorer.exe -ArgumentList 'C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared' 
+}
 
 # Uncomment to pause after running
 #Read-Host "Pause"
