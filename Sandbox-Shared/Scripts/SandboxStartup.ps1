@@ -62,7 +62,11 @@ reg add "HKEY_CLASSES_ROOT\Directory\Background\shell\Mycmd\command" /ve /d "cmd
 # ---- Add File Types to Context Menu > New ----
 # ShellNew Text Document - .txt
 Write-host "`nAdding txt document new file option"
+# Associate .txt with txtfile
+reg add "HKEY_CLASSES_ROOT\.txt" /ve /d "txtfile" /f
+# Define txtfile description
 reg add "HKEY_CLASSES_ROOT\txtfile" /ve /d "Text Document" /f
+# Add ShellNew capability
 reg add "HKEY_CLASSES_ROOT\.txt\ShellNew" /f
 # Use --% to not have powershell parse the arguments, otherwise it won't pass the empty string for the /d parameter
 reg --% add "HKEY_CLASSES_ROOT\.txt\ShellNew" /v "NullFile" /t REG_SZ /d "" /f

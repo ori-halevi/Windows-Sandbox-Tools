@@ -32,7 +32,7 @@ if %errorlevel% neq 0 (
 color A
 echo.
 echo =========================================
-echo SUCCESS! Notepad and Notepad++ prepared.
+echo SUCCESS! Notepad prepared.
 echo You can now launch the Sandbox VM safely.
 echo =========================================
 echo.

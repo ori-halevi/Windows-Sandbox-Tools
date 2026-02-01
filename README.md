@@ -1,52 +1,36 @@
-# Scripts & Tools for Windows Sandbox
-Various useful scripts for use within Windows Sandbox
+# Windows Sandbox Tools
 
-## 📥 Installer Scripts
+A streamlined and professional collection of tools designed to enhance and automate your Windows Sandbox environment.
 
-PowerShell scripts that can install apps or components not normally included in the Sandbox
+## 🚀 Quick Start
 
-- `Install-Winget.ps1`: Fetches necessary files and dependencies from Microsoft's [winget-cli](https://github.com/microsoft/winget-cli) repo, and installs it
-- `Install-Microsoft-Store.ps1`: Installs the Microsoft Store via the Windows Update APIs
-  - Unlike other similar scripts, mine does NOT use any third party APIs like UUP Dump or RG-Adguard at all
-  - (All web requests go directly to Microsoft servers. Even those fetching the download URLs in the first place)
-- `Install VC Redist.ps1`: Installs the latest Microsoft Visual C++ Redistributables, which are commonly required by other software.
+Getting up and running is effortless.
 
-## 🛠️ General Scripts
+### 1. Setup
+Move the following two items to your **Host Desktop**:
+*   `MyDefaultSandbox.wsb` (The configuration file)
+*   `Sandbox-Shared` (The entire folder containing scripts)
 
-- `Set Theme Dark Mode.ps1` - Sets the Sandbox to Dark theme and also changes to a dark wallpaper
-- `Set Theme Light Mode.ps1` - Restores the Light theme. Doesn't currently change the wallpaper back though.
+### 2. Launch
+Simply double-click `MyDefaultSandbox.wsb` on your Desktop.
+The Windows Sandbox will launch and automatically execute the startup scripts.
 
----------
+---
 
-## 🕑 SandboxStartup.ps1 (Startup Script)
+## 📝 Optional Features
 
-This script runs within the Sandbox at launch and does a bunch of random registry tweaks to set up the Sandbox based on my own preference
+### Enable Classic Notepad
+By default, the Windows Sandbox does not include basic Notepad. To enable it:
+1.  Navigate to: `get-Notepad-Optional` folder.
+2.  Run: `Run-get-Notepad.bat` (This extracts Notepad from your host system).
+The next time you launch the Sandbox, Classic Notepad will be available and integrated into the right-click menu.
 
-Specifically:
+---
 
-- Enables the old context menu
-- Enables Explorer settings: Show hidden files, Show file extensions
-- Adds "Open PowerShell Here" and "Open CMD Here" options to the context menu
-- Adds `.txt` and `.ps1` files to the Context Menu > "New" list
-- Sets PowerShell execution policy to allow running scripts, and also makes them runnable by double clicking
-- If you put Notepad or Notepad++ into the shared host folder (described in next section), it will add context menu options to Edit files with them, and set them as default editor for `.txt` files
-- Finally restarts Explorer to apply any changes and opens the shared host folder
+## 📂 Repository Structure
 
-
-### How to Use `SandboxStartup.ps1`
-
-It is written assuming it will be run from _within_ the sandbox, so to automatically run it you'll need to put it into a mapped shared folder.
-
-1. Create some new folder location (not in the sandbox) which you'll map into the sandbox. It doesn't matter what it's called or where it goes, but maybe something like `C:\Users\WhateverUsername\MySharedSandboxFolder`
-2. In this repo I have the  [`MyDefaultSandbox.wsb`](Sandbox%20Configurations/MyDefaultSandbox.wsb) configuration file which is already set up to map the folder to the location the script expects. So in there you just need to update the `<HostFolder>` setting to use the path you selected in the previous step. 
-
-    For Example:
-    ```
-    <HostFolder>C:\Users\WhateverUsername\MySharedSandboxFolder</HostFolder>
-    ```
-    
-3. Update any other options to your liking in the `.wsb` file, such as amount of RAM.
-4. Launch Sandbox using the configuration by double clicking `MyDefaultSandbox.wsb`. It will map the folder to the Desktop as a folder called `Sandbox-Shared`, and run the script automatically. You can also add other scripts and things to the shared folder you may want to run manually.
-
-### More Personal Preference Tweaks For Your Startup Script
-For other commands and registry tweaks that are more just personal preference, I've created a [Wiki page](https://github.com/ThioJoe/Windows-Sandbox-Tools/wiki/More-Optional-Registry-Tweaks)
+*   **`MyDefaultSandbox.wsb`**: The primary configuration file. Maps folders and initiates the setup.
+*   **`Sandbox-Shared/`**:
+    *   `Scripts/`: Automation scripts (Themes, VC Redist, Winget, and Editor setups).
+    *   `Notepad++/`: `Notepad++.exe` installer here.
+*   **`get-Notepad-Optional/`**: Utility to extract the classic `notepad.exe` and its localization files from your host.

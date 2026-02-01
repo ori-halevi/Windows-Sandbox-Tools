@@ -32,7 +32,9 @@
 		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\SandboxStartup.ps1\" -launchingSandbox}"</Command>
 
 		<!-- Note: You can add more powershell commands in additional blocks. For example you can uncomment the line below. -->
-		<!-- Notepad Setup -->
+		<!-- Install Notepad++ -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Install-NotepadPlusPlus.ps1\"}"</Command>
+		<!-- Setup Classic Notepad (If available) -->
 		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Setup-Notepad.ps1\"}"</Command>
 		<!-- Set Theme -->
 		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Set-Theme-DarkMode.ps1\"}"</Command>
