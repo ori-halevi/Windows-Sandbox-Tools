@@ -1,6 +1,10 @@
-# Windows Sandbox Tools
+# Windows Sandbox Tools – Major Rewrite
 
-A streamlined and professional collection of tools designed to enhance and automate your Windows Sandbox environment.
+This project is a major rewrite of [ThioJoe's Windows Sandbox Tools](https://github.com/ThioJoe/Windows-Sandbox-Tools).  
+Many structural changes, improvements, and additional features have been added.  
+
+Original author: ThioJoe  
+This fork: Ori Halevi
 
 ## 🚀 Quick Start
 
