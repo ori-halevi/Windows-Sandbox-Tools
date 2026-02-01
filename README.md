@@ -15,6 +15,8 @@ Move the following two items to your **Host Desktop**:
 Simply double-click `MyDefaultSandbox.wsb` on your Desktop.
 The Windows Sandbox will launch and automatically execute the startup scripts.
 
+### All done - no hassle, just launch! 😊👍
+
 ---
 
 ## 📝 Optional Features
