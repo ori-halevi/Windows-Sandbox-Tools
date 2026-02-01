@@ -1,7 +1,7 @@
 # =============================== Notepad++ Setup ===============================
 
 # Path to the Notepad++ installer in the shared folder
-$notepadPlusPlusInstaller = "$env:USERPROFILE\Desktop\Sandbox-Shared\Notepad++\Notepad++.exe"
+$notepadPlusPlusInstaller = "$env:USERPROFILE\Desktop\Sandbox-Shared\Softwares\Notepad++\Notepad++.exe"
 
 # ----------------- Install Notepad++ -----------------
 If (Test-Path $notepadPlusPlusInstaller) {

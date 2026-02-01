@@ -5,9 +5,9 @@
 # If checks fail, these steps are skipped.
 
 # NotePad Tip: Go to C:\Windows on your main computer and copy Notepad.exe (and language folders like en-US/notepad.exe.mui) 
-# into the Shared Folder structure properly.
+# into the Shared Folder structure properly (Sandbox-Shared\Softwares\Notepad).
 
-$notepadPath = "$env:USERPROFILE\Desktop\Sandbox-Shared\Notepad\notepad.exe"
+$notepadPath = "$env:USERPROFILE\Desktop\Sandbox-Shared\Softwares\Notepad\notepad.exe"
 
 # ----------------- Check paths -----------------
 If (!(Test-Path $notepadPath)) { 
