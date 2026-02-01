@@ -35,7 +35,7 @@
 		<!-- Install Notepad++ -->
 		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Install-NotepadPlusPlus.ps1\"}"</Command>
 		<!-- Setup Classic Notepad (If available) -->
-		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Setup-Notepad.ps1\"}"</Command>
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Install-Notepad.ps1\"}"</Command>
 		<!-- Set Theme -->
 		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\Sandbox-Shared\Scripts\Set-Theme-DarkMode.ps1\"}"</Command>
 		<!-- Install VC Redist -->
