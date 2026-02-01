@@ -19,8 +19,8 @@
 	<MappedFolders>
 		<!-- Desktop "HostShared" Folder. Put startup script and other useful scripts into. -->
 		<MappedFolder>
-		  <HostFolder>C:\Users\Public\Sandbox_Share</HostFolder> <!-- Update the HostFolder path to the one on your real computer that will be shared with the Sandbox -->
-		  <SandboxFolder>C:\Users\WDAGUtilityAccount\Desktop\HostShared</SandboxFolder> <!-- Don't change this, the startup script uses hardcoded paths -->
+		  <HostFolder>C:\SendBoxShit</HostFolder> <!-- Update the HostFolder path to the one on your real computer that will be shared with the Sandbox -->
+		  <SandboxFolder>C:\SendBoxShit</SandboxFolder> <!-- Don't change this, the startup script uses hardcoded paths -->
 		  <ReadOnly>true</ReadOnly> <!-- If Readonly is True, the sandbox can't change anything the folder (recommended) -->
 		</MappedFolder>
 	</MappedFolders>
@@ -28,9 +28,29 @@
 	<!-- Run the powershell script from the mapped folder -->
 	<LogonCommand>
 		<!-- The seemingly redundant command nesting makes it so the powershell window is visible when running. -->
-		<Command>powershell -executionpolicy Bypass -command "start powershell {-file C:\Users\WDAGUtilityAccount\Desktop\HostShared\SandboxStartup.ps1 -launchingSandbox}"</Command>
+
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\Startup Scripts\SandboxStartup.ps1\" -launchingSandbox}"</Command>
+
+		<!-- Note: You can add more powershell commands in additional blocks. For example you can uncomment the line below. -->
+		<!-- Notepad Setup -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\Startup Scripts\Setup-Notepad.ps1\"}"</Command>
+		<!-- Set Theme -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\General Scripts\Set Theme Dark Mode.ps1\"}"</Command>
+		<!-- Install VC Redist -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\Installer Scripts\Install VC Redist.ps1\"}"</Command>	
+		<!-- Install Microsoft Store -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\Installer Scripts\Install-Microsoft-Store.ps1\"}"</Command>
+		<!-- Install Winget -->
+		<Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\OH\Desktop\MyScripts\PS\Windows-Sandbox-Tools\Installer Scripts\Install-Winget.ps1\"}"</Command>
+		
+		<!-- Set Google DNS -->
+		<!-- <Command>netsh interface ipv4 set dnsservers "Ethernet" static 8.8.8.8 primary</Command> -->
+
+		
+		
 		<!-- Note: You can add more powershell commands in additional blocks. For example you can uncomment the line below. -->
 		<!-- <Command>powershell -executionpolicy Bypass -command "start powershell {-file \"C:\Users\WDAGUtilityAccount\Desktop\HostShared\Set Theme Dark Mode.ps1\"}"</Command> -->
+		
 	</LogonCommand>
 
 </Configuration> 
