@@ -19,7 +19,7 @@ foreach ($url in $urls) {
 
     Write-Host "Downloading $fileName..."
     # Download the file without a progress bar [1, 4]
-    Invoke-WebRequest -Uri $url -OutFile $filePath
+ Invoke-WebRequest -Uri $url -OutFile $filePath -UseBasicParsing
 
     if (Test-Path $filePath) {
         Write-Host "Installing $fileName..."

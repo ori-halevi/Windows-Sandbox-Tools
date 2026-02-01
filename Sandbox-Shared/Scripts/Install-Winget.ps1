@@ -92,9 +92,9 @@ $msixName = "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 $msixUrl = Get-AssetUrl -release $latestRelease -assetName $msixName
 if (-not $msixUrl) { Write-Error "Could not find $msixName in the latest release assets."; return; }
 
-Write-Host "Downloading $msixName..."
+Write-Host "Downloading $msixName (this may take a while)..."
 $msixPath = Join-Path $downloadPath $msixName
-Invoke-WebRequest -Uri $msixUrl -OutFile $msixPath
+Invoke-WebRequest -Uri $msixUrl -OutFile $msixPath -UseBasicParsing
 
 # Figure out the OS architecture using environment variable
 $procArch = $env:PROCESSOR_ARCHITECTURE
@@ -121,7 +121,7 @@ $depsFolder    = Join-Path $topDepsFolder $arch
 if ($depsZipUrl) {
     Write-Host "Downloading $depsZipName..."
     $depsZipPath = Join-Path $downloadPath $depsZipName
-    Invoke-WebRequest -Uri $depsZipUrl -OutFile $depsZipPath
+    Invoke-WebRequest -Uri $depsZipUrl -OutFile $depsZipPath -UseBasicParsing
 
     # Remove existing Dependencies folder and expand the zip
     if (Test-Path $topDepsFolder) { Remove-Item -Path $topDepsFolder -Recurse -Force }
